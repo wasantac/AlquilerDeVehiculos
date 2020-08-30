@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class Vehiculo {
     
-    //Atributos
+
     private String matricula;
     private String marca;
     private String modelo;
@@ -22,8 +22,7 @@ public class Vehiculo {
     private double tarifa;
     private boolean disponible;
     
-    //Métodos
-    //Constructor parametrizado
+
     public Vehiculo(String matricula, String marca, String modelo, String color, double tarifa, boolean disponible) {
         this.matricula = matricula;
         this.marca = marca;
@@ -45,13 +44,13 @@ public class Vehiculo {
         int numAlea;
         int letraAlea;
         
-        //Bucle para ponerle los numeros a la matricula
+
         for(int x=0;x<matricula.length-3;x++){
             numAlea=aleatorio.nextInt(10)+48;
             matricula[x]=(char) numAlea;
         }
         
-        //Bucle para ponerla las letras a la matricula
+
         for(int x=4;x<matricula.length;x++){
             letraAlea=aleatorio.nextInt(25)+65;
             matricula[x]=(char)letraAlea;
@@ -72,7 +71,7 @@ public class Vehiculo {
         this.disponible=disponible;
     }
     
-    //Getters y setters
+
     public String getMatricula() {
         return matricula;
     }

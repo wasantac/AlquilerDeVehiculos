@@ -6,63 +6,58 @@
 package alquiler;
 
 import java.time.LocalDate;
+import java.time.Month;
 
 public class Empresa {
 
-    //Atributos
     private String cif;
     private String nombre;
     private String paginaWeb;
 
-    /*Atributos para almacenar el total de clientes que tiene la empresa y array
-    de almacenamiento para los objetos Cliente*/
+
     private int totalClientes;
     private Cliente[] clientes;
 
-    /*Atributos para controlar el total de vehiculos disponibles para alquilar en
-    la empresa y array de almacenamiento para los objetos Vehiculo*/
+
     private int totalVehiculos;
     private Vehiculo[] vehiculos;
 
-    /*Atributos para controJose", "Juan", "Hector", "Daniel", "Alejandro", "Victor", "Ana", "Maria", "Paula", "Roberta", "Lucia", "Lidia"};
-        String[] apellido={"Ramirez", "Rios", "Glar el histórico de alquileres: total de alquileres
-    realizados y array de almacenamiento para los objetos VehiculoAlquilado*/
+
     private int totalAlquileres;
     private VehiculoAlquilado[] alquileres;
 
-    //Metodos
-    /*Constructor parametrizado */
+
     public Empresa(String cif, String nombre, String paginaWeb) {
         this.cif = cif;
         this.nombre = nombre;
         this.paginaWeb = paginaWeb;
 
-        //Inicialmente la empresa no tiene clientes
+
         this.totalClientes = 0;
         this.clientes = new Cliente[50];
 
-        //Inicialmente la empresa no tiene vehiculos
+
         this.totalVehiculos = 0;
         this.vehiculos = new Vehiculo[50];
 
-        //Inicialmente la empresa no tiene alquileres
+
         this.totalAlquileres = 0;
         this.alquileres = new VehiculoAlquilado[100];
     }
 
-    //Método para registrar un cliente
+
     public void registrarCliente(Cliente nuevo) {
         this.clientes[this.totalClientes] = nuevo;
         this.totalClientes++;
     }
 
-    //Método para registrar un vehiculo
+
     public void registrarVehiculo(Vehiculo nuevo) {
         this.vehiculos[this.totalVehiculos] = nuevo;
         this.totalVehiculos++;
     }
 
-    //Método para mostrar los datos de un cliente de la empresa
+
     public void imprimirClientes() {
         for (int x = 0; x < this.totalClientes; x++) {
             System.out.println("NIF: " + clientes[x].getNif() + "\tNombre: " + clientes[x].getNombre()
@@ -70,7 +65,7 @@ public class Empresa {
         }
     }
 
-    //Método para mostrar los vehiculos de la empresa
+
     public void imprimirVehiculos() {
         System.out.println("Matricula\tModelo\tColor\tImporte\tDisponible\n");
         for (int x = 0; x < this.totalVehiculos; x++) {
@@ -79,7 +74,7 @@ public class Empresa {
         }
     }
 
-    //Metodo para obtener el cliente
+
     private Cliente getCliente(String nif) {
         for (int i = 0; i < this.getTotalClientes(); i++) {
             if (this.clientes[i].getNif().equals(nif)) {
@@ -89,7 +84,7 @@ public class Empresa {
         return null;
     }
 
-    //Metodo para obtener el vehiculo
+
     private Vehiculo getVehiculo(String matricula) {
         for (int i = 0; i < this.getTotalVehiculos(); i++) {
             if (this.vehiculos[i].getMatricula().equals(matricula)) {
@@ -99,7 +94,6 @@ public class Empresa {
         return null;
     }
 
-    //Método para alquilar un vehiculo
     public void alquilarVehiculo(String matricula, String nif, int dias) {
         Cliente cliente = getCliente(nif);
         Vehiculo vehiculo = getVehiculo(matricula);
@@ -111,11 +105,9 @@ public class Empresa {
         }
     }
 
-    //Metodo para poner un vehiculo a estado disponible para alquilar
+
     public void recibirVehiculo(String matricula) {
-        // busca el vehículo con la matrícula dada en el
-        // array vehiculos y modifica su disponibilidad
-        // para que se pueda alquilar de nuevo
+
         Vehiculo vehiculo = getVehiculo(matricula);
         if (vehiculo != null) {
             vehiculo.setDisponible(true);
@@ -136,7 +128,7 @@ public class Empresa {
         this.totalClientes = 50;
     }
 
-    //Getters y setters
+
     public String getCif() {
         return cif;
     }
@@ -209,27 +201,20 @@ public class Empresa {
         this.alquileres = alquileres;
     }
 
-    public LocalDate diaHoy() {
-        LocalDate hoy = LocalDate.now();
-        hoy.getDayOfMonth();
-        return hoy;
+    public int diaHoy() {
+        return  LocalDate.now().getDayOfMonth();
     }
 
-    public LocalDate mesHoy() {
-        LocalDate mes = LocalDate.now();
-        mes.getMonth();
-        return mes;
+    public Month mesHoy() {
+        return LocalDate.now().getMonth();
     }
 
-    public LocalDate anioHoy() {
-        LocalDate anio = LocalDate.now();
-        anio.getYear();
-        return anio;
+    public int anioHoy() {
+        return LocalDate.now().getYear();
     }
 
     public void ordenarClientes() {
-        int valor = 0;
-        Cliente tmp = new Cliente("09082192K", "josé", "rodriguez");
+        Cliente tmp;
         System.out.println("-----------------");
         System.out.println(clientes.length);
         System.out.println(totalClientes);
@@ -247,8 +232,7 @@ public class Empresa {
     }
 
     public void ordenarVehiculos() {
-        int valor = 0;
-        Vehiculo tmp = new Vehiculo("4080 TUR", "VW", "GTI", "Azul", 110.0, false);
+        Vehiculo tmp;
         System.out.println("-----------------");
         System.out.println(vehiculos.length);
         System.out.println(totalVehiculos);

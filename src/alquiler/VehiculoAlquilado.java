@@ -6,6 +6,7 @@
 package alquiler;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.Date;
 
 /**
@@ -14,17 +15,16 @@ import java.util.Date;
  */
 public class VehiculoAlquilado {
     
-    //Atributos
+
     private Cliente cliente;
     private Vehiculo vehiculo;
-    private LocalDate diaAlquiler;
-    private LocalDate mesAlquiler;
-    private LocalDate anioAlquiler;
+    private int diaAlquiler;
+    private Month mesAlquiler;
+    private int anioAlquiler;
     private int totalDiasAlquiler;
     
-    //Métodos
-    //Constructor parametrizado0
-    public VehiculoAlquilado(Cliente cliente, Vehiculo vehiculo, LocalDate diaAlquiler, LocalDate mesAlquiler, LocalDate anioAlquiler, int totalDiasAlquiler) {
+
+    public VehiculoAlquilado(Cliente cliente, Vehiculo vehiculo,int diaAlquiler, Month mesAlquiler, int anioAlquiler, int totalDiasAlquiler) {
         this.cliente = cliente;
         this.vehiculo = vehiculo;
         this.diaAlquiler = diaAlquiler;
@@ -33,7 +33,7 @@ public class VehiculoAlquilado {
         this.totalDiasAlquiler = totalDiasAlquiler;
     }
     
-    //Getters y setters
+
 
     public Cliente getCliente() {
         return cliente;
@@ -51,29 +51,31 @@ public class VehiculoAlquilado {
         this.vehiculo = vehiculo;
     }
 
-    public LocalDate getDiaAlquiler() {
+    public int getDiaAlquiler() {
         return diaAlquiler;
     }
 
-    public void setDiaAlquiler(LocalDate diaAlquiler) {
+    public void setDiaAlquiler(int diaAlquiler) {
         this.diaAlquiler = diaAlquiler;
     }
 
-    public LocalDate getMesAlquiler() {
+    public Month getMesAlquiler() {
         return mesAlquiler;
     }
 
-    public void setMesAlquiler(LocalDate mesAlquiler) {
+    public void setMesAlquiler(Month mesAlquiler) {
         this.mesAlquiler = mesAlquiler;
     }
 
-    public LocalDate getAnioAlquiler() {
+    public int getAnioAlquiler() {
         return anioAlquiler;
     }
 
-    public void setAnioAlquiler(LocalDate anioAlquiler) {
+    public void setAnioAlquiler(int anioAlquiler) {
         this.anioAlquiler = anioAlquiler;
     }
+
+
 
     public int getTotalDiasAlquiler() {
         return totalDiasAlquiler;
